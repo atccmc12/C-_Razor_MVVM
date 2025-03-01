@@ -1,0 +1,107 @@
+﻿@model MVVMExample.Models.ViewModels.CustomerViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Customer</h1>
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Customer.Id" />
+            <div class="row form-group">
+                <label asp-for="Customer.FirstName" class="col-md-2 control-label"></label>
+                <div class="col-md-4"><input asp-for="Customer.FirstName" class="form-control" /></div>
+                <span asp-validation-for="Customer.FirstName" class="text-danger"></span>
+            </div>
+            <div class="row form-group">
+                <label asp-for="Customer.LastName" class="col-md-2 control-label"></label>
+                <div class="col-md-4">
+                    <input asp-for="Customer.LastName" class="form-control" />
+                </div>
+                    <span asp-validation-for="Customer.LastName" class="text-danger"></span>
+                </div>
+            <h4>Billing Address</h4>
+            <hr />
+            <div class="row form-group">
+                <input type="hidden" asp-for="BillingAddress.Id"/>
+                <label asp-for="BillingAddress.Address1" class="col-md-2 control-label"></label>
+                <div class="col-md-4">
+                    <input asp-for="BillingAddress.Address1" class="form-control" />
+                </div>
+                    <span asp-validation-for="BillingAddress.Address1" class="text-danger"></span>
+                </div>
+            <div class="row form-group">
+                <label asp-for="BillingAddress.Address2" class="col-md-2 control-label"></label>
+                <div class="col-md-4">
+                    <input asp-for="BillingAddress.Address2" class="form-control" />
+                </div>
+                    <span asp-validation-for="BillingAddress.Address1" class="text-danger"></span>
+                </div>
+            <div class="row form-group">
+                <label asp-for="BillingAddress.City" class="col-md-2 control-label"></label>
+                <div class="col-md-4">
+                    <input asp-for="BillingAddress.City" class="form-control" />
+                </div>
+                    <span asp-validation-for="BillingAddress.City" class="text-danger"></span>
+                </div>
+            <div class="row form-group">
+                <label asp-for="BillingAddress.ProvinceCode" class="col-md-2 control-label"></label>
+                <div class="col-md-4">
+                    <select asp-for="BillingAddress.ProvinceCode" class="form-control">
+                        <option value="ON">Ontario</option>
+                        <option value="QC">Quebec</option>
+                        <option value="BC">British Columbia</option>
+                        <option value="AB">Alberta</option>
+                        <option value="MB">Manitoba</option>
+                    </select>
+                </div>
+                    <span asp-validation-for="BillingAddress.ProvinceCode" class="text-danger"></span>
+             </div>
+            <h4>Shipping Address</h4>
+            <hr />
+            <div class="row form-group">
+                <input type="hidden" asp-for="ShippingAddress.Id" />
+                <label asp-for="ShippingAddress.Address1" class="col-md-2 control-label"></label>
+                <div class="col-md-4">
+                    <input asp-for="ShippingAddress.Address1" class="form-control" />
+                </div>
+                <span asp-validation-for="ShippingAddress.Address1" class="text-danger"></span>
+            </div>
+            <div class="row form-group">
+                <label asp-for="ShippingAddress.Address2" class="col-md-2 control-label"></label>
+                <div class="col-md-4">
+                    <input asp-for="ShippingAddress.Address2" class="form-control" />
+                </div>
+                    <span asp-validation-for="ShippingAddress.Address1" class="text-danger"></span>
+                </div>
+            <div class="row form-group">
+                <label asp-for="ShippingAddress.City" class="col-md-2 control-label"></label>
+                <div class="col-md-4">
+                    <input asp-for="ShippingAddress.City" class="form-control" />
+                </div>
+                    <span asp-validation-for="ShippingAddress.City" class="text-danger"></span>
+                </div>
+            <div class="row form-group">
+                <label asp-for="ShippingAddress.ProvinceCode" class="col-md-2 control-label"></label>
+                <div class="col-md-4">
+                    <select asp-for="ShippingAddress.ProvinceCode" class="form-control">
+                        <option value="ON">Ontario</option>
+                        <option value="QC">Quebec</option>
+                        <option value="BC">British Columbia</option>
+                        <option value="AB">Alberta</option>
+                        <option value="MB">Manitoba</option>
+                    </select>
+                </div>
+                <span asp-validation-for="BillingAddress.ProvinceCode" class="text-danger"></span>
+            </div>
+            <div class="row form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
